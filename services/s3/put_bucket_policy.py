@@ -34,5 +34,7 @@ def put_bucket_policy(bucket_policy: str, bucket_name: str, source_account: str)
             logger.error(f"AWS S3 error updating bucket policy for '{bucket_name}': {error_code} - {error_message}")
             raise e
     except Exception as e:
-        logger.error(f"Unexpected error updating bucket policy for '{bucket_name}': {type(e).__name__}: {e}")
+        logger.error(f"Failed to update bucket policy for '{bucket_name}' in account '{source_account}'.")
+        logger.error(e)
+        logger.error(f"{type(e).__name__}: {e}")
         raise e
