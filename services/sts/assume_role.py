@@ -39,7 +39,7 @@ def assume_role(account_id: str, role) -> Session:
             logger.error(f"Unknown client error.")
             raise e
     except Exception as e:
-        logger.error("Unknown error.")
+        logger.error("An error occurred while assuming role.")
         logger.error(e)
         raise e
 
