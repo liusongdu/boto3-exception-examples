@@ -66,7 +66,8 @@ def get_secret_value(secret_id: str) -> dict:
             # Deal with the exception here, and/or rethrow at your discretion.
             raise e
     except Exception as e:
-        logger.error("Unknown error")
+        logger.error("An error occurred while retrieving secret.")
+        logger.error(e)
         raise e
 
     return get_secret_value_response
